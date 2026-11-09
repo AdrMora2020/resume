@@ -2,12 +2,149 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>Adrian Mora · Resume</title>
-<meta http-equiv="refresh" content="0; url=Adrian-Mora-Resume.pdf">
+<meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#09090B" media="(prefers-color-scheme: dark)">
+<title>Adrian Mora</title>
+<meta name="description" content="Adrian Mora. Computer Science at URI, Cyber Security PSM. Resume and LinkedIn.">
+<meta property="og:title" content="Adrian Mora">
+<meta property="og:description" content="Computer Science at URI, Cyber Security PSM. Resume and LinkedIn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #09090B;
+    --muted: #52525B;
+    --line: #E4E4E7;
+    --accent: #2563EB;
+    --accent-hover: #1D4ED8;
+    --on-accent: #FFFFFF;
+    --chip: #F4F4F5;
+    --shadow: 0 1px 2px rgba(9, 9, 11, .04), 0 8px 24px rgba(9, 9, 11, .06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #09090B;
+      --surface: #18181B;
+      --text: #FAFAFA;
+      --muted: #A1A1AA;
+      --line: #27272A;
+      --accent: #3B82F6;
+      --accent-hover: #60A5FA;
+      --chip: #18181B;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { font-size: 100%; -webkit-text-size-adjust: 100%; }
+  body {
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: max(24px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right))
+             max(24px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { width: 100%; max-width: 420px; }
+  .rise { opacity: 0; transform: translateY(18px); animation: rise .5s cubic-bezier(.22, 1, .36, 1) forwards; }
+  .rise:nth-child(2) { animation-delay: .09s; }
+  .rise:nth-child(3) { animation-delay: .18s; }
+  .rise:nth-child(4) { animation-delay: .27s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  .mark {
+    width: 64px; height: 64px; border-radius: 18px;
+    display: grid; place-items: center;
+    background: var(--text); color: var(--bg);
+    font: 700 1.5rem/1 "Space Grotesk", sans-serif; letter-spacing: -.02em;
+    margin-bottom: 28px;
+  }
+  h1 {
+    font: 700 2.5rem/1.05 "Space Grotesk", sans-serif;
+    letter-spacing: -.035em;
+  }
+  .role { margin-top: 10px; font-size: 1.0625rem; color: var(--muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .tags span {
+    font-size: .8125rem; font-weight: 500; color: var(--muted);
+    padding: 6px 12px; border-radius: 999px;
+    background: var(--chip); border: 1px solid var(--line);
+  }
+
+  .actions { display: grid; gap: 12px; margin-top: 36px; }
+  .btn {
+    display: flex; align-items: center; gap: 14px;
+    min-height: 64px; padding: 0 20px;
+    border-radius: 16px; text-decoration: none;
+    font: 600 1.0625rem/1.2 "Archivo", sans-serif;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
+  }
+  .btn svg { flex: none; }
+  .btn .label { flex: 1; }
+  .btn .label small { display: block; font-weight: 400; font-size: .8125rem; opacity: .75; margin-top: 2px; }
+  .btn .arrow { opacity: .6; transition: transform .2s ease; }
+  .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .btn:hover .arrow { transform: translateX(3px); }
+  .btn:active { transform: translateY(0); }
+  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  .primary { background: var(--accent); color: var(--on-accent); box-shadow: var(--shadow); }
+  .primary:hover { background: var(--accent-hover); }
+  .secondary { background: var(--surface); color: var(--text); border: 1px solid var(--line); }
+  .secondary:hover { border-color: var(--muted); }
+  .secondary .li { color: #0A66C2; }
+
+  footer { margin-top: 28px; text-align: center; font-size: .875rem; color: var(--muted); }
+  footer a {
+    color: var(--muted); text-decoration: none; display: inline-block; padding: 12px 8px;
+    border-radius: 8px; cursor: pointer; transition: color .2s ease;
+  }
+  footer a:hover { color: var(--text); }
+  footer a:focus-visible { outline: 2px solid var(--accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rise { animation: none; opacity: 1; transform: none; }
+    .btn, .btn .arrow { transition: none; }
+  }
+</style>
 </head>
-<body style="font-family:-apple-system,Arial,sans-serif;padding:24px">
-<p>Opening Adrian Mora's resume. <a href="Adrian-Mora-Resume.pdf">Tap here if it does not open.</a></p>
+<body>
+<main>
+  <header class="rise">
+    <div class="mark" aria-hidden="true">AM</div>
+    <h1>Adrian Mora</h1>
+    <p class="role">Computer Science + Cyber Security<br>University of Rhode Island</p>
+  </header>
+
+  <div class="tags rise" aria-label="Focus areas">
+    <span>Full-stack</span><span>Automation</span><span>Cybersecurity</span><span>Linux &amp; cloud</span>
+  </div>
+
+  <nav class="actions rise" aria-label="Links">
+    <a class="btn primary" href="Adrian-Mora-Resume.pdf">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+      <span class="label">View my resume<small>PDF, 2 pages</small></span>
+      <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+    <a class="btn secondary" href="https://www.linkedin.com/in/adrian-mora-038631293" rel="noopener">
+      <svg class="li" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <span class="label">Connect on LinkedIn<small>Experience, projects, messages</small></span>
+      <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  </nav>
+
+  <footer class="rise">
+    <a href="mailto:adrmora2020@gmail.com">adrmora2020@gmail.com</a>
+  </footer>
+</main>
 </body>
 </html>
