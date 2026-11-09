@@ -11,7 +11,8 @@
 <meta property="og:description" content="Computer Science + Cyber Security, University of Rhode Island. Resume and LinkedIn.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<!-- Non-blocking: the page paints in system fonts at once and swaps when these arrive. -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <style>
   :root {
     --grad-1: #1E40AF;
@@ -61,10 +62,10 @@
     padding: 36px 24px 24px;
     text-align: center;
     box-shadow: var(--shadow-card);
-    opacity: 0; transform: translateY(20px);
-    animation: rise .55s cubic-bezier(.22, 1, .36, 1) forwards;
+    animation: rise .55s cubic-bezier(.22, 1, .36, 1);
   }
-  @keyframes rise { to { opacity: 1; transform: none; } }
+  /* Visible from the first frame; the motion is decoration, never a gate. */
+  @keyframes rise { from { transform: translateY(20px); } }
 
   .mark {
     width: 72px; height: 72px; margin: 0 auto 20px;
@@ -139,7 +140,7 @@
   footer a:focus-visible { outline: 2px solid var(--blue); }
 
   @media (prefers-reduced-motion: reduce) {
-    .card { animation: none; opacity: 1; transform: none; }
+    .card { animation: none; }
     .btn, .btn .arrow { transition: none; }
   }
 </style>
